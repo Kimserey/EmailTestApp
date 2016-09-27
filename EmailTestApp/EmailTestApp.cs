@@ -8,7 +8,18 @@ namespace EmailTestApp
 	{
 		public App()
 		{
-			// The root page of your application
+			var sendEmail = new Button
+			{
+				Text = "Send",
+				VerticalOptions = LayoutOptions.CenterAndExpand,
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
+			};
+
+			sendEmail.Clicked += (sender, e) =>
+			{
+				DependencyService.Get<IEmailService>().ShowDraft();
+			};
+
 			var content = new ContentPage
 			{
 				Title = "EmailTestApp",
@@ -19,27 +30,12 @@ namespace EmailTestApp
 						new Label {
 							HorizontalTextAlignment = TextAlignment.Center,
 							Text = "Welcome to Xamarin Forms!"
-						}
+						},
+						sendEmail
 					}
 				}
 			};
-
 			MainPage = new NavigationPage(content);
-		}
-
-		protected override void OnStart()
-		{
-			// Handle when your app starts
-		}
-
-		protected override void OnSleep()
-		{
-			// Handle when your app sleeps
-		}
-
-		protected override void OnResume()
-		{
-			// Handle when your app resumes
 		}
 	}
 }

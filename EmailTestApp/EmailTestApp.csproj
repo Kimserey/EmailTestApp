@@ -30,6 +30,7 @@
   <ItemGroup>
     <Compile Include="EmailTestApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EmailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
